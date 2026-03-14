@@ -1,39 +1,48 @@
-<!-- 
+<!--
 This README describes the package. If you publish this package to pub.dev,
 this README's contents appear on the landing page for your package.
 
 For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages). 
+[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
 
 For general information about developing packages, see the Dart guide for
 [creating packages](https://dart.dev/guides/libraries/create-packages)
 and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages). 
+[developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# flutter_aria2_api
 
-## Features
+---
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+参考[Aria2RPC](https://aria2.github.io/manual/en/html/aria2c.html#rpc-interface)，使用Dart实现的JSON-RPC接口api
 
-## Getting started
+## 用法
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+---
 
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+1. 创建客户端（http或websocket）
 
 ```dart
-const like = 'sample';
+final client = Aria2HttpClient(
+	host: host,
+	port: port,
+	path: path,
+	secret: secret,
+	func: Aria2HttpFunction.post,
+);
 ```
 
-## Additional information
+2. 调用
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```dart
+final response = await client.addUri([downloadLink], option);
+```
+
+3. 获取返回值
+
+```dart
+final gid = response.asMethod?.data.asStringData?.value;
+```
+
+更多用法请参考test中的代码
