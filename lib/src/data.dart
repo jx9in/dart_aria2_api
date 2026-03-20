@@ -5,7 +5,7 @@ import 'package:aria2_api/src/struct.dart';
 import 'package:collection/collection.dart';
 
 class Aria2IntegerResponseData extends Aria2ResponseData
-    with ResponseValue<int> {
+    with ValueGetterMixin<int> {
   final int _value;
 
   const Aria2IntegerResponseData(this._value);
@@ -20,7 +20,7 @@ class Aria2IntegerResponseData extends Aria2ResponseData
 }
 
 class Aria2ListResponseData extends Aria2ResponseData
-    with ResponseValue<List<Aria2ResponseData>> {
+    with ValueGetterMixin<List<Aria2ResponseData>> {
   final List<Aria2ResponseData> _value;
 
   const Aria2ListResponseData(this._value);
@@ -53,7 +53,7 @@ class Aria2ListResponseData extends Aria2ResponseData
 }
 
 class Aria2NotificationResponseData extends Aria2ResponseData
-    implements ResponseValue<List<Aria2NotificationObject>> {
+    implements ValueGetterMixin<List<Aria2NotificationObject>> {
   final List<Aria2NotificationObject> _value;
 
   const Aria2NotificationResponseData(this._value);
@@ -74,7 +74,7 @@ class Aria2NotificationResponseData extends Aria2ResponseData
 }
 
 class Aria2ObjectResponseData extends Aria2ResponseData
-    with ResponseValue<Aria2TypedObject> {
+    with ValueGetterMixin<Aria2TypedObject> {
   final Aria2TypedObject _value;
 
   const Aria2ObjectResponseData(this._value);
@@ -91,7 +91,7 @@ class Aria2ObjectResponseData extends Aria2ResponseData
   }
 }
 
-sealed class Aria2ResponseData with ClassConverter<Aria2ResponseData> {
+sealed class Aria2ResponseData with ClassConverterMixin<Aria2ResponseData> {
   const Aria2ResponseData();
 
   factory Aria2ResponseData.build(Aria2Method method, dynamic json) {
@@ -123,7 +123,7 @@ sealed class Aria2ResponseData with ClassConverter<Aria2ResponseData> {
 }
 
 class Aria2StringResponseData extends Aria2ResponseData
-    with ResponseValue<String> {
+    with ValueGetterMixin<String> {
   final String _value;
 
   const Aria2StringResponseData(this._value);

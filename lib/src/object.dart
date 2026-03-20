@@ -515,7 +515,7 @@ class Aria2NotificationObject extends Aria2TypedObject {
 }
 
 class Aria2OptionObject extends Aria2InputFileOption
-    with ClassConverter<Aria2TypedObject>
+    with ClassConverterMixin<Aria2TypedObject>
     implements Aria2TypedObject {
   /// Specify maximum number of files to open in multi-file BitTorrent/Metalink download globally. Default: 100
   final int? btMaxOpenFiles;
@@ -1502,7 +1502,7 @@ class Aria2SessionInfoObject extends Aria2TypedObject {
   }
 }
 
-sealed class Aria2TypedObject with ClassConverter<Aria2TypedObject> {
+sealed class Aria2TypedObject with ClassConverterMixin<Aria2TypedObject> {
   const Aria2TypedObject();
 
   factory Aria2TypedObject.build(Map<String, dynamic> json) {

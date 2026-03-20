@@ -16,7 +16,7 @@ enum Aria2DownloadingStatus {
   removed,
 }
 
-enum Aria2DownloadResult with AliasEnum {
+enum Aria2DownloadResult with AliasEnumMixin {
   defaults('default'),
   full('full'),
   hide('hide');
@@ -33,7 +33,7 @@ enum Aria2FileAllocationMethod { none, prealloc, trunc, falloc }
 
 enum Aria2FTPType { ascii, binary }
 
-enum Aria2HashType with AliasEnum {
+enum Aria2HashType with AliasEnumMixin {
   sha1('sha-1'),
   sha224('sha-224'),
   sha256('sha-256'),
@@ -56,7 +56,7 @@ enum Aria2LogLevel { debug, info, notice, warn, error }
 
 enum Aria2MetalinkPreferredProtocol { http, https, ftp, none }
 
-enum Aria2MethodName with AliasEnum {
+enum Aria2MethodName with AliasEnumMixin {
   /// {@template aria2_api.add_uri}
   /// This method adds a new download.
   ///
@@ -814,7 +814,7 @@ enum Aria2MethodName with AliasEnum {
   bool get noRequireSecret => this == listMethods || this == listNotifications;
 }
 
-enum Aria2NotificationName with AliasEnum {
+enum Aria2NotificationName with AliasEnumMixin {
   onDownloadStart,
   onDownloadPause,
   onDownloadStop,
@@ -826,7 +826,7 @@ enum Aria2NotificationName with AliasEnum {
   String get alias => 'aria2.$name';
 }
 
-enum Aria2PositionSymbol with AliasEnum {
+enum Aria2PositionSymbol with AliasEnumMixin {
   posSet('POS_SET'),
   posCur('POS_CUR'),
   posEnd('POS_END');
@@ -841,7 +841,7 @@ enum Aria2PositionSymbol with AliasEnum {
 
 enum Aria2ProxyMethod { get, tunnel }
 
-enum Aria2StreamPieceSelector with AliasEnum {
+enum Aria2StreamPieceSelector with AliasEnumMixin {
   defaults('default'),
   inorder('inorder'),
   random('random'),
@@ -855,7 +855,7 @@ enum Aria2StreamPieceSelector with AliasEnum {
   String get alias => _alias;
 }
 
-enum Aria2Symbol with AliasEnum {
+enum Aria2Symbol with AliasEnumMixin {
   yes('true'),
   no('false'),
   mem('mem');

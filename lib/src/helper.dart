@@ -58,7 +58,7 @@ extension Aria2TypedObjectHelper on Aria2TypedObject {
   Aria2VersionObject? get asVersionObject => asTOrNull<Aria2VersionObject>();
 }
 
-extension EnumByAlias<T extends AliasEnum> on Iterable<T> {
+extension EnumByAlias<T extends AliasEnumMixin> on Iterable<T> {
   T byAlias(String alias) {
     for (final value in this) {
       if (value.alias == alias) return value;

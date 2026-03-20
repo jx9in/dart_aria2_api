@@ -4,7 +4,7 @@ import 'package:aria2_api/src/enum.dart';
 import 'package:aria2_api/src/helper.dart' show EnumByAlias;
 import 'package:aria2_api/src/struct.dart';
 
-sealed class Aria2ClientResponse with ClassConverter<Aria2ClientResponse> {
+sealed class Aria2ClientResponse with ClassConverterMixin<Aria2ClientResponse> {
   const Aria2ClientResponse();
 }
 

@@ -1,14 +1,14 @@
-mixin ClassConverter<P> {
+mixin ClassConverterMixin<P> {
   T? asTOrNull<T extends P>() => switch (this) {
     T f => f,
     _ => null,
   };
 }
 
-mixin ResponseValue<T> {
+mixin ValueGetterMixin<T> {
   T get value;
 }
 
-mixin AliasEnum on Enum {
+mixin AliasEnumMixin on Enum {
   String get alias;
 }
